@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SaleRequest;
 use Illuminate\Http\Request;
-use App\Sale;
+use App\Models\Sale;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use App\Repositories\SaleRepository;
 
 class SaleController extends Controller
 {
+
+    private $sale;
+
+    public function __construct(SaleRepository $sale)
+    {
+        $this->sale = $sale;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,12 +26,7 @@ class SaleController extends Controller
      */
     public function index(Request $request)
     {
-        if(isset($request->per_page))
-            $per_page = $request->per_page;
-        else 
-            $per_page = 20;
-        
-        return Sale::with('products:name,delivery_days')->paginate($per_page);
+        return $this->sale->paginate($request->per_page);
     }
 
     /**
@@ -30,26 +35,14 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SaleRequest $request)
     {
-        $validator = Validator::make($request->all(),[
-            'purchase_at' => 'required|date|before:tomorrow',
-            'delivery_days' => 'required',
-            'amount' => 'required',
-            'products'=>'required',
-        ]);
-        
-        if ($validator->fails()) {
-          return response()->json(['errors'=>$validator->errors()], 422);
+        try {
+            $this->sale->create($request->validated());
+            return Response()->json(['message'=>'Venda Concluída com sucesso!'], 201);
+        } catch (\Exception $e) {
+            return response()->json(['message'=>'Erro ao finalizar venda'],400);
         }
-    
-        $sale = new Sale;
-        $sale->purchase_at = Carbon::parse($request->purchase_at);
-        $sale->amount = $request->amount;
-        $sale->delivery_days = $request->delivery_days;
-        $sale->save();
-        $sale->products()->sync($request->products);
-        return Response()->json(['message'=>'Venda Concluida com sucesso!'], 201);
     }
 
     /**
@@ -60,7 +53,7 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        return Sale::with('products:name,delivery_days')->find($id);
+        return $this->sale->findById($id);
     }
 
     /**
@@ -70,15 +63,14 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaleRequest $request, $id)
     {
-        $sale = Sale::find($id);
-        $sale->purchase_at = Carbon::parse($request->purchase_at);
-        $sale->save();
-
-        $sale->products()->sync($request->products);
-
-        return Response()->json('Venda Alterada com sucesso!', 200);
+        try {
+            $this->sale->update($request->validated(), $id);
+            return Response()->json('Venda Alterada com sucesso!', 200);
+        } catch (\Exception $e) {
+            return response()->json('Erro ao alterar venda',400);
+        }
     }
 
     /**
@@ -89,9 +81,11 @@ class SaleController extends Controller
      */
     public function destroy($id)
     {
-        $sale = Sale::find($id);
-        $sale->products()->detach();
-        $sale->delete();
-        return Response()->json('Venda Excluida com sucesso!', 200);
+        try {
+            $this->sale->destroy($id);
+            return Response()->json('Venda Excluída com sucesso!', 200);
+        } catch (\Exception $e) {
+            return response()->json('Erro ao excluir venda',400);
+        }
     }
 }
