@@ -27,23 +27,23 @@ Bulma
 
 ## Resolução dos desafios
 
-- Implementar o conceito de Repositories no projeto (Nível Básico):  
+- Implementar o conceito de Repositories no projeto (Nível Básico):   
 	Pattern implementado seguindo as especificações.
 
-- Implementar FormRequest nos Controllers (Nível Básico):  
+- Implementar FormRequest nos Controllers (Nível Básico):   
 	Validações criadas seguindo as especificações.
 
-- Criar um command para inserir um produto via terminal (Nível Intermediário):  
+- Criar um command para inserir um produto via terminal (Nível Intermediário):   
 	Para inserir produtos na base de dados através do console basta inserir a entrada `product:create` seguida pelo nome do produto.  
 	Exemplo: `product:create "Camisa"`  
 	Siga os passos descritos pelo console.
 
-- Adicionar Docker ao projeto (Nível Intermediário):  
+- Adicionar Docker ao projeto (Nível Intermediário):   
 	Docker configurado e funcional, para executar o aplicativo siga os passos descritos na tag `Instalação` do arquivo `readme.md`
 
-- Organizar os Models em uma pasta (Nível Básico):  
+- Organizar os Models em uma pasta (Nível Básico):   
 	Todas as Models foram movidas para `app/Models/`
 
-- Criar uma Job (Nível Avançado):  
+- Criar uma Job (Nível Avançado):   
 	`php artisan schedule:run`  
 	Obs:Para utilizar um channel real do Slack, adicione a variável `LOG_SLACK_WEBHOOK_URL` no arquivo `.env` e preencha com uma webhook url válida.
