@@ -8,13 +8,13 @@ Pretensão Sálarial: R$ 4.500,00
  1. Clone este repositório  
  ` git clone https://github.com/Rafaeldsant/avaliacao-vxcase.git`  
  `cd avaliacao-vxcase`  
- 2. Compile a imagem do app com o seguinte comando:  
- `docker-compose build app`  
- 3. Instale as dependências do aplicativo:  
- `docker-compose exec app composer install`
- 4. Configure o ambiente:  
+ 2. Configure o ambiente:  
  `cp .env.example .env`  
  Obs: importante que a variável `DB_HOST` do arquivo `.env` seja setada com `db` para fácil identificação do Docker.
+ 3. Compile a imagem do app com o seguinte comando:  
+ `docker-compose build app`  
+ 4. Instale as dependências do aplicativo:  
+ `docker-compose exec app composer install`
  5. Execute o ambiente em segundo plano com:  
  `docker-compose up -d`
  6. Gere uma key e popule o banco de dados:  
