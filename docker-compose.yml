@@ -21,9 +21,9 @@ services:
     container_name: avaliacao-vxcase-db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: avaliacao-vxcase
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
