@@ -1,9 +1,8 @@
 # Avaliação para vaga de DEV VX CASE
 
-## Stack de Tecnologia:  
-Laravel  
-Vue/Vuex  
-Bulma  
+## Autor: Rafael Santana:  
+Finalizado em 17/06/2021  
+Pretensão Sálarial: R$ 4.500,00  
 
 ## Instalação
  1. Clone este repositório  
