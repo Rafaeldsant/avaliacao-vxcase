@@ -38,7 +38,9 @@ Bulma
 - Criar um command para inserir um produto via terminal (Nível Intermediário):  
 
 	Para inserir produtos na base de dados através do console basta inserir a entrada `product:create` seguida pelo nome do produto.  
+	
 	Exemplo: `product:create "Camisa"`  
+	
 	Siga os passos descritos pelo console.
 
 - Adicionar Docker ao projeto (Nível Intermediário):  
