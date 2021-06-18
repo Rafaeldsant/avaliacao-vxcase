@@ -1,6 +1,6 @@
 # Avaliação para vaga de DEV VX CASE
 
-## Autor: Rafael Santana:  
+## Candidato: Rafael Santana  
 Finalizado em 17/06/2021  
 Pretensão Sálarial: R$ 4.500,00  
 
