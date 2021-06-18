@@ -34,8 +34,8 @@ Bulma
 	Validações criadas seguindo as especificações.
 
 - Criar um command para inserir um produto via terminal (Nível Intermediário):  
-	Para inserir produtos na base de dados através do console basta inserir a entrada `product:create` seguida pelo nome do produto.
-	Exemplo: `product:create "Camisa"`
+	Para inserir produtos na base de dados através do console basta inserir a entrada `product:create` seguida pelo nome do produto.  
+	Exemplo: `product:create "Camisa"`  
 	Siga os passos descritos pelo console.
 
 - Adicionar Docker ao projeto (Nível Intermediário):  
@@ -45,5 +45,5 @@ Bulma
 	Todas as Models foram movidas para `app/Models/`
 
 - Criar uma Job (Nível Avançado):  
-	`php artisan schedule:run`
+	`php artisan schedule:run`  
 	Obs:Para utilizar um channel real do Slack, adicione a variável `LOG_SLACK_WEBHOOK_URL` no arquivo `.env` e preencha com uma webhook url válida.
