@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Eloquent;
 
 use App\Models\Sale;
+use App\Repositories\Contracts\SaleRepositoryInterface;
 use Carbon\Carbon;
 
-class SaleRepository
+class SaleRepository implements SaleRepositoryInterface
 {
     private $sale;
 

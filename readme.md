@@ -36,9 +36,9 @@ Pretensão Sálarial: R$ 4.500,00
 
 - **Criar um command para inserir um produto via terminal (Nível Intermediário):**  
 
-	Para inserir produtos na base de dados através do console basta inserir a entrada `product:create` seguida pelo nome do produto.  
+	Para inserir produtos na base de dados através do console basta inserir a entrada `docker-compose exec app php artisan product:create` seguido pelo nome do produto.  
 	
-	Exemplo: `product:create "Camisa"`  
+	Exemplo: `docker-compose exec app php artisan product:create "Camisa"`  
 	
 	Siga os passos descritos pelo console.
 
@@ -52,5 +52,5 @@ Pretensão Sálarial: R$ 4.500,00
 
 - **Criar uma Job (Nível Avançado):**  
 
-	`php artisan schedule:run`  
+	`docker-compose exec app php artisan schedule:run`  
 	Obs:Para utilizar um channel real do Slack, adicione a variável `LOG_SLACK_WEBHOOK_URL` no arquivo `.env` e preencha com uma webhook url válida.

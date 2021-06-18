@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Repositories\Contracts\ProductRepositoryInterface;
 use Illuminate\Http\Request;
-use App\Repositories\ProductRepository;
+use App\Repositories\Eloquent\ProductRepository;
 
 class ProductController extends Controller
 {
     private $product;
 
-    public function __construct(ProductRepository $product)
+    public function __construct(ProductRepositoryInterface $product)
     {
         $this->product = $product;
     }

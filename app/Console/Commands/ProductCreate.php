@@ -3,9 +3,10 @@
 namespace App\Console\Commands;
 
 use App\Models\Product;
+use App\Repositories\Contracts\ProductRepositoryInterface;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
-use App\Repositories\ProductRepository;
+use App\Repositories\Eloquent\ProductRepository;
 
 class ProductCreate extends Command
 {
@@ -30,7 +31,7 @@ class ProductCreate extends Command
      *
      * @return void
      */
-    public function __construct(ProductRepository $product)
+    public function __construct(ProductRepositoryInterface $product)
     {
         $this->product = $product;
         parent::__construct();

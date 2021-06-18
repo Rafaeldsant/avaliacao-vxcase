@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SaleRequest;
+use App\Repositories\Contracts\SaleRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Models\Sale;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
-use App\Repositories\SaleRepository;
+use App\Repositories\Eloquent\SaleRepository;
 
 class SaleController extends Controller
 {
 
     private $sale;
 
-    public function __construct(SaleRepository $sale)
+    public function __construct(SaleRepositoryInterface $sale)
     {
         $this->sale = $sale;
     }
