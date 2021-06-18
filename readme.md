@@ -13,10 +13,10 @@ Pretensão Sálarial: R$ 4.500,00
  Obs: importante que a variável `DB_HOST` do arquivo `.env` seja setada com `db` para fácil identificação do Docker.
  3. Compile a imagem do app com o seguinte comando:  
  `docker-compose build app`  
- 4. Instale as dependências do aplicativo:  
- `docker-compose exec app composer install`
- 5. Execute o ambiente em segundo plano com:  
+ 4. Execute o ambiente em segundo plano com:  
  `docker-compose up -d`
+ 5. Instale as dependências do aplicativo:  
+ `docker-compose exec app composer install`
  6. Gere uma key e popule o banco de dados:  
  `docker-compose exec app php artisan key:generate`  
     - Popule o banco de dados mysql  

@@ -107,10 +107,9 @@ class ProductCreate extends Command
         $this->line('Produto: '.$answers['name']);
 
         $args = array();
-        $args[0] = 'name';
-        $args[1] = 'reference';
-        $args[2] = 'price';
-        $args[3] = 'delivery_days';
+        $args[0] = 'reference';
+        $args[1] = 'price';
+        $args[2] = 'delivery_days';
 
         for($i = 0;$i <= (count($questions) -1 );$i++){
             $this->line(($questions[$i]).': '. $answers[$args[$i]]);
