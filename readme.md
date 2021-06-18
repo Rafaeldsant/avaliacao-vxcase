@@ -4,6 +4,7 @@
 Finalizado em 17/06/2021
 
 ## Instalação
+
  1. Clone este repositório  
  ` git clone https://github.com/Rafaeldsant/avaliacao-vxcase.git`  
  `cd avaliacao-vxcase`  
