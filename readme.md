@@ -16,7 +16,7 @@ Pretensão Sálarial: R$ 4.500,00
  `docker-compose exec app composer install`
  4. Configure o ambiente:  
  `cp .env.example .env`  
- Obs: importante que a variável `DB_HOST` do arquivo `.env` seja setada com `db` para fácil idenficação do Docker.
+ Obs: importante que a variável `DB_HOST` do arquivo `.env` seja setada com `db` para fácil identificação do Docker.
  `docker-compose exec app php artisan key:generate`  
     - Popule o banco de dados mysql  
  `docker-compose exec app php artisan migrate --seed`  
